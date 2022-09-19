@@ -2,32 +2,58 @@ const movies = require("./movies");
 const users = require("./users");
 
 // from movies array, return the movie with highest votes count
+const movieVotes = movies.map((movie) => movie.votes);
+const maxNumber = Math.max(...movieVotes);
 
-const movieWithHighestVotes = movies.map((movie) => movie.votes);
-console.log(movieWithHighestVotes);
+const movieWithHighestVotes = movies.filter(
+  (movie) => movie.votes === maxNumber
+);
 
 // from movies array, return the movie with lowest votes count
+const minNumber = Math.min(...movieVotes);
+
+const movieWithLowestVotes = movies.filter(
+  (movie) => movie.votes === minNumber
+);
+
 // from movies array, return all movies from year 2018
+const moviesFrom2018 = movies.filter((movie) => movie.year === 2018);
 
 // from movies array, return all movies that were filmed between 2018 and 2019
+const moviesFilmedBetween2018And2019 = movies.filter(
+  (movie) => movie.year === 2018 || movie.year === 2019
+);
 
 // from movies array, return all movies that were filmed in 2021 and have a minimum of 100 votes
+const moviesFilmedIn2021 = movies.filter((movie) => movie.year === 2021);
 
-// from movies array, return all movies where title is 4 words only
-
+const moviesFilmedIn2021With100Votes = moviesFilmedIn2021.filter(
+  (movie) => movie.votes <= 100
+);
 // from movies array, is thre any movie with title Home Alone? if so return true, else false
-
+const thereIsHomeAloneMovie = movies.some(
+  (movie) => movie.title === "Home Alone"
+);
 // from movies array, return all movies that include the word 'The' in their title
-
+const moviesThatIncludeThe = movies.filter((movie) =>
+  movie.title.includes("The")
+);
 // from movies array, return all movies with only 2 genreIds
 
 // from movies array, return the title and description of the movie that includes following genreIds - [ 80, 53, 18 ]
-
+const moviesGenreIds = movies.filter((movie) =>
+  movie.genreIds.includes(...80, 53, 18)
+);
+console.log(moviesGenreIds);
 // from movies array, return all the movies that include 878 genreId
+const moviesThatInclude878 = movies.map((movie) => movie.genreIds);
+// console.log(moviesThatInclude878);
 
 // from movies array, are thre any movies from 2022? if so return true, else false
+const moviesFrom2020 = movies.some((movie) => movie.year === 2022);
 
 // from users array, return only the users which email ends with .biz
+const usersEmailEndsBiz = users.filter((email) => email.email.endsWith(".biz"));
 
 // from users array, for all users return in the console a message including user name, company name and city
 // example: Leanne Graham works at Romaguera-Crona and lives in Gwenborough city
