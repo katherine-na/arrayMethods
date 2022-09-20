@@ -42,8 +42,12 @@ const moviesThatIncludeThe = movies.filter((movie) =>
 const moviesWithTwoGenereIds = movies.filter(
   (movie) => movie.genreIds.length === 2
 );
-console.log(moviesWithTwoGenereIds);
 // from movies array, return the title and description of the movie that includes following genreIds - [ 80, 53, 18 ]
+const genreIds = [80, 53, 18];
+const movieWithGenereId = movies.filter((movie) =>
+  movie.genreIds.indexOf([genreIds])
+);
+console.log(movieWithGenereId);
 
 // from movies array, return all the movies that include 878 genreId
 const moviesThatInclude878 = movies.filter((movie) =>
@@ -80,6 +84,8 @@ const usersWebsiteDomainOrg = users.filter((user) =>
 // from users array, return all usernames wich phone numbers include an extension
 // FYI - extension is followed after x character "1-770-736-8031 x56442" where in example 56442 is the extension.
 
+const usernameExtension = users.filter((user) => user.phone.includes("x"));
+
 // from users array, return all usernames in capitals
 // example: ['DELPHINE', 'BRETE', 'ANTONETTE', ...]
 const usernameInCapitals = users.map((user) => user.username.toUpperCase());
@@ -95,3 +101,13 @@ const usersCdmxOrLondon = users.some(
     user.address.city.includes("CDMX") || user.address.city.includes("London")
 );
 // from users array, return longer company catchPhrase
+const companyCatchPhrase = users.map((user) => user.company.catchPhrase);
+// console.log(companyCatchPhrase);
+
+const longerCatchPhrase = Math.max(companyCatchPhrase.length);
+// console.log(longerCatchPhrase);
+
+const longerCompanyCatchPhrase = companyCatchPhrase.filter(
+  (user) => user < longerCatchPhrase
+);
+// console.log(longerCompanyCatchPhrase);
