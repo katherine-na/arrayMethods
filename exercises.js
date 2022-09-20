@@ -39,10 +39,11 @@ const moviesThatIncludeThe = movies.filter((movie) =>
   movie.title.includes("The")
 );
 // from movies array, return all movies with only 2 genreIds
-
+const moviesWithTwoGenereIds = movies.filter(
+  (movie) => movie.genreIds.length === 2
+);
+console.log(moviesWithTwoGenereIds);
 // from movies array, return the title and description of the movie that includes following genreIds - [ 80, 53, 18 ]
-const genreId = [80, 53, 18];
-const moviesGenreIds = movies.map((movie) => movie.genreIds);
 
 // from movies array, return all the movies that include 878 genreId
 const moviesThatInclude878 = movies.filter((movie) =>
@@ -94,5 +95,3 @@ const usersCdmxOrLondon = users.some(
     user.address.city.includes("CDMX") || user.address.city.includes("London")
 );
 // from users array, return longer company catchPhrase
-
-// from users array,
