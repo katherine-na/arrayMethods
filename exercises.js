@@ -43,11 +43,13 @@ const moviesWithTwoGenereIds = movies.filter(
   (movie) => movie.genreIds.length === 2
 );
 // from movies array, return the title and description of the movie that includes following genreIds - [ 80, 53, 18 ]
-const genreIds = [80, 53, 18];
-const movieWithGenereId = movies.filter((movie) =>
-  movie.genreIds.indexOf([genreIds])
+const moviesGeneredIds = movies.map((genreId) => genreId.genreIds);
+const specialGenereIds = [80, 53, 18];
+const movieWithGenereIdSpecial = movies.filter(
+  (genreId) => genreId.genreIds === specialGenereIds
 );
-console.log(movieWithGenereId);
+
+console.log(movieWithGenereIdSpecial);
 
 // from movies array, return all the movies that include 878 genreId
 const moviesThatInclude878 = movies.filter((movie) =>
@@ -100,14 +102,19 @@ const usersCdmxOrLondon = users.some(
   (user) =>
     user.address.city.includes("CDMX") || user.address.city.includes("London")
 );
-// from users array, return longer company catchPhrase
-const companyCatchPhrase = users.map((user) => user.company.catchPhrase);
+// from users array, return the company with longer catchPhrase
+
+const companyCatchPhrase = users.map((user) => user.company.catchPhrase.length);
 // console.log(companyCatchPhrase);
 
-const longerCatchPhrase = Math.max(companyCatchPhrase.length);
-// console.log(longerCatchPhrase);
+const maxNumberOfCharacters = Math.max(...companyCatchPhrase);
+// console.log(maxNumberOfCharacters);
 
-const longerCompanyCatchPhrase = companyCatchPhrase.filter(
-  (user) => user < longerCatchPhrase
+const userWithLongerCatchPhrase = users.filter(
+  (string) => string.company.catchPhrase.length === maxNumberOfCharacters
 );
-// console.log(longerCompanyCatchPhrase);
+// console.log(
+//   `Esta compania ${userWithLongerCatchPhrase[0].company.name} tiene el slogan "${userWithLongerCatchPhrase[0].company.catchPhrase}" y tiene ${userWithLongerCatchPhrase[0].company.catchPhrase.length} caracteres`
+// );
+
+// console.log(userWithLongerCatchPhrase);
