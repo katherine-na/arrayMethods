@@ -118,3 +118,11 @@ const userWithLongerCatchPhrase = users.filter(
 // );
 
 // console.log(userWithLongerCatchPhrase);
+
+// from movies array, return the movie title and votes
+const titleAndVotesMovie = movies.map((movie) => ({
+  title: movie["title"],
+  votes: movie["votes"],
+}));
+
+console.log(titleAndVotesMovie);
