@@ -232,9 +232,11 @@ const users = [
 ];
 
 const divContainer = document.querySelector("#users");
+const htmlBody = document.querySelector("body");
 
 const usersGenerator = users.map((user) => {
-  return `<div class="users-container">
+  return `
+  <div class="users-container">
     <div class="users.info">
     <p><b>name:</b> ${user.name}</p>
     <p><b>username:</b> ${user.username}</p>
@@ -249,6 +251,9 @@ const usersGenerator = users.map((user) => {
   </div>`;
 });
 
-console.log(usersGenerator);
+const paragraphs = usersGenerator.map((paragraph) => {
+  return paragraph.p;
+});
 
 divContainer.innerHTML = usersGenerator.join("");
+htmlBody.style.margin = "5%";
