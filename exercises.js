@@ -1,4 +1,4 @@
-const movies = require("./movies");
+// const movies = require("./movies");
 const users = require("./users");
 
 // from movies array, return the movie with highest votes count
